@@ -4,6 +4,15 @@
 const selectRace = document.querySelector('.js-select-race');
 const playBtn = document.querySelector('.js-play-btn');
 const gameResult = document.querySelector('.js-result');
+const replayBtn = document.querySelector('.js-replay-btn');
+
+//Start with replay button hidden
+replayBtn.classList.add('hidden');
+
+
+//Variables for user-computer results
+const userResultEl = document.querySelector('.js-result-user');
+const compResultEl = document.querySelector('.js-result-computer');
 
 //Create objects for evil races (computer side)
 
@@ -41,6 +50,10 @@ function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
 
+//Create variables to count results
+
+let userResult = 0;
+let computerResult = 0;
 //Function to compare values from each side (user and computer) when clicking button
 function compareResult(){
     const randomValue = getRandomNumber(4);
@@ -50,10 +63,22 @@ function compareResult(){
     console.log(evilRaces[randomValue]);
     if (raceValue < randomRaceValue){
         gameResult.innerHTML = 'Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
+        computerResult += 1;
     }else if (raceValue === randomRaceValue){
         gameResult.innerHTML = 'Empate';
     }else{
         gameResult.innerHTML = 'Ha ganado el Ejército del Bien! Enhorabuena.';
+        userResult += 1;
+    }
+}
+
+//Function to paint result of game
+function paintResult(){
+    userResultEl.innerHTML = userResult;
+    compResultEl.innerHTML = computerResult;
+    if(userResult === 10 || computerResult === 10){
+        replayBtn.classList.remove('hidden');
+        playBtn.classList.add('hidden');
     }
 }
 
@@ -61,7 +86,20 @@ function compareResult(){
 function handleClick (event){
     event.preventDefault();
     compareResult();
+    paintResult();
 }
 
-
+//Event listener play button
 playBtn.addEventListener('click', handleClick);
+
+//Event listener reset button
+replayBtn.addEventListener('click', ()=>{
+    userResult = 0;
+    computerResult = 0;
+    userResultEl.innerHTML = userResult;
+    compResultEl.innerHTML = computerResult;
+    replayBtn.classList.add('hidden');
+    playBtn.classList.remove('hidden');
+});
+
+
