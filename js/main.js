@@ -41,19 +41,13 @@ function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
 
-//Function to get random evil race
-function getRandomRace(array) {
-    return Math.ceil(Math.random() * array.length);
-}
-
-
 //Function to compare values from each side (user and computer) when clicking button
 function compareResult(){
-    const randomRace = getRandomRace (evilRaces);
-    console.log(randomRace, evilRaces[randomRace]);
+    const randomValue = getRandomNumber(4);
     const raceValue = parseInt(selectRace.value);
-    const randomRaceValue = evilRaces[randomRace].value;
+    const randomRaceValue = evilRaces[randomValue].value;
     console.log(raceValue);
+    console.log(evilRaces[randomValue]);
     if (raceValue < randomRaceValue){
         gameResult.innerHTML = 'Ha ganado el Ejército del Mal! Vuelve a Intentarlo.';
     }else if (raceValue === randomRaceValue){
