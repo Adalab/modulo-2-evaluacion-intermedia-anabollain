@@ -5,6 +5,7 @@ const selectRace = document.querySelector('.js-select-race');
 const playBtn = document.querySelector('.js-play-btn');
 const gameResult = document.querySelector('.js-result');
 const replayBtn = document.querySelector('.js-replay-btn');
+const resulBtn = document.querySelector('.js-result-btn');
 
 //Start with replay button hidden
 replayBtn.classList.add('hidden');
@@ -80,6 +81,12 @@ function paintResult(){
         replayBtn.classList.remove('hidden');
         playBtn.classList.add('hidden');
     }
+    if(userResult === 10){
+        resulBtn.innerHTML = `Has ganado el juego`;
+    }
+    if(computerResult === 10){
+        resulBtn.innerHTML = `Has perdido el juego`;
+    }
 }
 
 //Main function when clicking in play button
@@ -93,7 +100,8 @@ function handleClick (event){
 playBtn.addEventListener('click', handleClick);
 
 //Event listener reset button
-replayBtn.addEventListener('click', ()=>{
+replayBtn.addEventListener('click', (event)=>{
+    event.preventDefault();
     userResult = 0;
     computerResult = 0;
     userResultEl.innerHTML = userResult;
