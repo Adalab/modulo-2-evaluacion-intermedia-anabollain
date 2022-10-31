@@ -75,8 +75,8 @@ function compareResult(){
 
 //Function to paint result of game
 function paintResult(){
-    userResultEl.innerHTML = userResult;
-    compResultEl.innerHTML = computerResult;
+    userResultEl.innerHTML = `Jugador: ${userResult}`;
+    compResultEl.innerHTML = `Computadora: ${computerResult}`;
     if(userResult === 10 || computerResult === 10){
         replayBtn.classList.remove('hidden');
         playBtn.classList.add('hidden');
@@ -106,6 +106,7 @@ replayBtn.addEventListener('click', (event)=>{
     computerResult = 0;
     userResultEl.innerHTML = userResult;
     compResultEl.innerHTML = computerResult;
+    resulBtn.innerHTML = `¡Comienza la batalla!`;
     replayBtn.classList.add('hidden');
     playBtn.classList.remove('hidden');
 });
