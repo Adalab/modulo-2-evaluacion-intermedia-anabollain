@@ -17,48 +17,44 @@
         <h2 class="header-subtitle">Welcome to the nonsense war</h2>
     </header>
     <main class="main">
-        <div class="main-cards">
-            <article class="main-cards-good">
+        <section class="main-cards">
+            <article class="main-cards-article">
                 <h3 class="cards-title">Good</h3>
-                <div class="good-card-template good-back js-good-template">
-                    <h4 class="good-card-per js-good-per">The Good Army</h4>
-                    <div class="good-card-img js-good-img"></div>
+                <div class="card-template good-back js-good-template">
+                    <h4 class="card-per js-good-per">The Good Army</h4>
+                    <div class="card-img js-good-img"></div>
                     <div class="card-force"><i class="fa-solid fa-hand-fist"></i></div>
                 </div>
                 <p class="card-desc">Choose a warrior amongst the crazy good ones, may the force be with you...</p>
                 <section class="good-form">
                     <form>
-                        <select class="good-form-select js-select-race" name="good-race" id="good-race">
+                        <select class="card-form-select js-select-race" name="good-race" id="good-race">
                             <option value="0">Choose your warrior</option>
-                            <option value="1">Sir Cup</option>
-                            <option value="2">Big Nose</option>
-                            <option value="3">Balloon Head</option>
-                            <option value="4">Weird Panthom</option>
-                            <option value="5">Crazy Monkey</option>
+                            <!--option inputs rendered in javascript with objects-->
                         </select>
                     </form>
                 </section>
                 <p class="card-result js-result-user">Player:</p>
             </article>
             <button class="main-play-btn js-play-btn">Play</button>
-            <article class="main-cards-evil">
+            <button class="main-restart-btn js-replay-btn hidden">Restart game</button>
+            <article class="main-cards-article">
                 <h3 class="cards-title">Evil</h3>
-                <div class="evil-card-template evil-back js-evil-template">
-                    <h4 class="evil-card-per js-evil-per">The Evil Army</h4>
-                    <div class="evil-card-img js-evil-img"></div>
+                <div class="card-template evil-back js-evil-template">
+                    <h4 class="card-per js-evil-per">The Evil Army</h4>
+                    <div class="card-img js-evil-img"></div>
                     <div class="card-force"><i class="fa-solid fa-hand-fist"></i></div>
                 </div>
                 <p class="card-desc">Oh no! The evil forces are getting stronger every day, watch out...</p>
-                <button class="evil-btn">Mysterious warrior</button>
+                <button class="card-form-select">Mysterious warrior</button>
                 <p class="card-result js-result-computer">Computer:</p>
             </article>
-        </div>
+        </section>
         <section class="main-result">
             <div class="main-result-desc">
                 <button class="main-result-btn js-result-btn">The battle starts in 1, 2, 3...</button>
                 <p class="js-result">0</p>
             </div>
-            <button class="main-result-restart js-replay-btn">Restart game</button>
         </section>
     </main>
     <script type="text/javascript" src="./js/main.js"></script>
